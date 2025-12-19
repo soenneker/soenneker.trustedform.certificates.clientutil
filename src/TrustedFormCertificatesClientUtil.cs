@@ -21,7 +21,7 @@ public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificates
 
     public TrustedFormCertificatesClientUtil(ITrustedFormClient httpClientUtil, IConfiguration configuration)
     {
-        _client = new AsyncSingleton<TrustedFormCertificatesOpenApiClient>(async (token, _) =>
+        _client = new AsyncSingleton<TrustedFormCertificatesOpenApiClient>(async token =>
         {
             HttpClient httpClient = await httpClientUtil.Get(token).NoSync();
 
