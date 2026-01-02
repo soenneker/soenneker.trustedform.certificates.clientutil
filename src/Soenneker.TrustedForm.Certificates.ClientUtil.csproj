@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.TrustedForm.Certificates.ClientUtil</AssemblyName>
         <PackageId>Soenneker.TrustedForm.Certificates.ClientUtil</PackageId>
         <PackageTags>trustedform certificates clientutil openapi activeprospect kiota trustedformcertificatesclientutil kiotaclient csharp dotnet c# .net</PackageTags>
-        <Copyright>Copyright © 2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2025-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
