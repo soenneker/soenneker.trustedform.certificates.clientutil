@@ -18,21 +18,27 @@ namespace Soenneker.TrustedForm.Certificates.ClientUtil;
 public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificatesClientUtil
 {
     private readonly AsyncSingleton<TrustedFormCertificatesOpenApiClient> _client;
+    private readonly ITrustedFormClient _httpClientUtil;
+    private readonly IConfiguration _configuration;
 
     public TrustedFormCertificatesClientUtil(ITrustedFormClient httpClientUtil, IConfiguration configuration)
     {
-        _client = new AsyncSingleton<TrustedFormCertificatesOpenApiClient>(async token =>
-        {
-            HttpClient httpClient = await httpClientUtil.Get(token).NoSync();
+        _httpClientUtil = httpClientUtil;
+        _configuration = configuration;
+        _client = new AsyncSingleton<TrustedFormCertificatesOpenApiClient>(CreateClient);
+    }
 
-            var apiKey = configuration.GetValueStrict<string>("ActiveProspect:TrustedForm:ApiKey");
+    private async ValueTask<TrustedFormCertificatesOpenApiClient> CreateClient(CancellationToken token)
+    {
+        HttpClient httpClient = await _httpClientUtil.Get(token).NoSync();
 
-            var provider = new GenericAuthenticationProvider(headerValue: $"Basic {apiKey}", additionalHeaders: new Dictionary<string, string> { { "Api-Version", "4.0" } });
+        var apiKey = _configuration.GetValueStrict<string>("ActiveProspect:TrustedForm:ApiKey");
 
-            var requestAdapter = new HttpClientRequestAdapter(provider, httpClient: httpClient);
+        var provider = new GenericAuthenticationProvider(headerValue: $"Basic {apiKey}", additionalHeaders: new Dictionary<string, string> { { "Api-Version", "4.0" } });
 
-            return new TrustedFormCertificatesOpenApiClient(requestAdapter);
-        });
+        var requestAdapter = new HttpClientRequestAdapter(provider, httpClient: httpClient);
+
+        return new TrustedFormCertificatesOpenApiClient(requestAdapter);
     }
 
     public ValueTask<TrustedFormCertificatesOpenApiClient> Get(CancellationToken cancellationToken = default)
