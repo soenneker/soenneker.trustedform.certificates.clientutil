@@ -1,20 +1,19 @@
-﻿using Soenneker.TrustedForm.Certificates.ClientUtil.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.TrustedForm.Certificates.ClientUtil.Abstract;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.TrustedForm.Certificates.ClientUtil.Tests;
 
-[Collection("Collection")]
-public sealed class TrustedFormCertificatesClientUtilTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class TrustedFormCertificatesClientUtilTests : HostedUnitTest
 {
     private readonly ITrustedFormCertificatesClientUtil _kiotaclient;
 
-    public TrustedFormCertificatesClientUtilTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public TrustedFormCertificatesClientUtilTests(Host host) : base(host)
     {
         _kiotaclient = Resolve<ITrustedFormCertificatesClientUtil>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
