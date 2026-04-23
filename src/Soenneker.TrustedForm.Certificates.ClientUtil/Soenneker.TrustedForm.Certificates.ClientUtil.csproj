@@ -44,8 +44,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Kiota.BearerAuthenticationProvider" Version="4.0.36" />
-        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.29" />
+        <PackageReference Include="Soenneker.Kiota.BearerAuthenticationProvider" Version="4.0.37" />
+        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.30" />
         <PackageReference Include="Soenneker.TrustedForm.Certificates.OpenApiClient" Version="4.0.72" />
         <PackageReference Include="Soenneker.TrustedForm.Client" Version="4.0.266" />
         <PackageReference Include="Soenneker.Utils.AsyncSingleton" Version="4.0.783" />
