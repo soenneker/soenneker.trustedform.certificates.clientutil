@@ -16,20 +16,13 @@
         </Content>
     </ItemGroup>
 
-<<<<<<< HEAD
     <ItemGroup>
         <PackageReference Include="Soenneker.Utils.Test" Version="4.0.314" />
         <PackageReference Include="Soenneker.Tests.HostedUnit" Version="4.0.13" />
         <PackageReference Include="TUnit" Version="1.37.24" />
-=======
-    <ItemGroup><PackageReference Include="Soenneker.Utils.Test" Version="4.0.315" />
-        <PackageReference Include="Soenneker.Tests.FixturedUnit" Version="4.0.2305" />
-        <PackageReference Include="xUnit.v3" Version="3.2.2" />
->>>>>>> b60fc3b2adf64e3f40d20397adee04f8557fd1c6
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Soenneker.TrustedForm.Certificates.ClientUtil\Soenneker.TrustedForm.Certificates.ClientUtil.csproj" />
     </ItemGroup>
 </Project>
-
