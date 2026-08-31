@@ -6,7 +6,7 @@ using Soenneker.TrustedForm.Client.Registrars;
 namespace Soenneker.TrustedForm.Certificates.ClientUtil.Registrars;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for GitHub
+/// Registers authenticated access to the TrustedForm Certificate API v4 client.
 /// </summary>
 public static class TrustedFormCertificatesClientUtilRegistrar
 {

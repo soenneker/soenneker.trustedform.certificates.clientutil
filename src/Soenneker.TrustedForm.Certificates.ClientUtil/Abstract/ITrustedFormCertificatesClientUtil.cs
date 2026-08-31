@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 namespace Soenneker.TrustedForm.Certificates.ClientUtil.Abstract;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for 
+/// Provides cached access to an authenticated TrustedForm Certificate API v4 client.
 /// </summary>
 public interface ITrustedFormCertificatesClientUtil : IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Gets the value.
+    /// Gets the cached TrustedForm Certificate API client.
     /// </summary>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A task containing the result of the operation.</returns>

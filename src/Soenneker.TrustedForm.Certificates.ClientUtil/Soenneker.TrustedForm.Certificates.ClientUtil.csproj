@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>An async thread-safe singleton for ActiveProspect TrustedForm Certificate OpenApiClient</Description>
+        <Description>Provides lazily initialized, authenticated access to the TrustedForm Certificate API v4 client.</Description>
         <Version Condition="'$(BUILD_VERSION)' == ''">4.0.0</Version>
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.TrustedForm.Certificates.ClientUtil</AssemblyName>
@@ -44,7 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Kiota.BearerAuthenticationProvider" Version="4.0.47" />
         <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.41" />
         <PackageReference Include="Soenneker.TrustedForm.Certificates.OpenApiClient" Version="4.0.92" />
         <PackageReference Include="Soenneker.TrustedForm.Client" Version="4.0.369" />

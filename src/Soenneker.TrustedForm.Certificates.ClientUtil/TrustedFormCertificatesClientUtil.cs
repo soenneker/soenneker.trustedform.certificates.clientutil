@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Text;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 using Soenneker.Extensions.Configuration;
 using Soenneker.TrustedForm.Certificates.ClientUtil.Abstract;
@@ -14,7 +16,6 @@ using Soenneker.Kiota.GenericAuthenticationProvider;
 
 namespace Soenneker.TrustedForm.Certificates.ClientUtil;
 
-///<inheritdoc cref="ITrustedFormCertificatesClientUtil"/>
 public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificatesClientUtil
 {
     private readonly AsyncSingleton<TrustedFormCertificatesOpenApiClient> _client;
@@ -34,7 +35,8 @@ public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificates
 
         var apiKey = _configuration.GetValueStrict<string>("ActiveProspect:TrustedForm:ApiKey");
 
-        var provider = new GenericAuthenticationProvider(headerValue: $"Basic {apiKey}", additionalHeaders: new Dictionary<string, string> { { "Api-Version", "4.0" } });
+        string credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"API:{apiKey}"));
+        var provider = new GenericAuthenticationProvider(headerValue: $"Basic {credentials}", additionalHeaders: new Dictionary<string, string> { { "Api-Version", "4.0" } });
 
         var requestAdapter = new HttpClientRequestAdapter(provider, httpClient: httpClient);
 
