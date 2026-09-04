@@ -16,6 +16,7 @@ using Soenneker.Kiota.GenericAuthenticationProvider;
 
 namespace Soenneker.TrustedForm.Certificates.ClientUtil;
 
+/// <inheritdoc cref="ITrustedFormCertificatesClientUtil" />
 public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificatesClientUtil
 {
     private readonly AsyncSingleton<TrustedFormCertificatesOpenApiClient> _client;
