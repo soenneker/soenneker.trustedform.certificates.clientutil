@@ -45,8 +45,8 @@
 
     <ItemGroup>
         <PackageReference Include="Soenneker.Extensions.Configuration" Version="4.0.874" />
-        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.42" />
-        <PackageReference Include="Soenneker.TrustedForm.Certificates.OpenApiClient" Version="4.0.96" />
+        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.43" />
+        <PackageReference Include="Soenneker.TrustedForm.Certificates.OpenApiClient" Version="4.0.97" />
         <PackageReference Include="Soenneker.TrustedForm.Client" Version="4.0.390" />
     </ItemGroup>
 </Project>
