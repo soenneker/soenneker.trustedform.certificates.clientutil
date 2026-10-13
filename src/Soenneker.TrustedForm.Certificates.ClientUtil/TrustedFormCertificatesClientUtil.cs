@@ -34,7 +34,7 @@ public sealed class TrustedFormCertificatesClientUtil : ITrustedFormCertificates
     {
         HttpClient httpClient = await _httpClientUtil.Get(token).NoSync();
 
-        var apiKey = _configuration.GetValueStrict<string>("ActiveProspect:TrustedForm:ApiKey");
+        var apiKey = _configuration.GetStringStrict("ActiveProspect:TrustedForm:ApiKey");
 
         string credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"API:{apiKey}"));
         var provider = new GenericAuthenticationProvider(headerValue: $"Basic {credentials}", additionalHeaders: new Dictionary<string, string> { { "Api-Version", "4.0" } });
